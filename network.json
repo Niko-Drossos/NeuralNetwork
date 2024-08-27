@@ -1,0 +1,1017 @@
+{
+  "$id": "1",
+  "Nodes": {
+    "1240056403": {
+      "$id": "2",
+      "Id": "385525655",
+      "Bias": 0.367,
+      "Activation": 0.367,
+      "OutConnections": [
+        {
+          "Weight": 0.734,
+          "FromNode": "1240056403",
+          "ToNode": "1691150053"
+        },
+        {
+          "Weight": 0.969,
+          "FromNode": "1240056403",
+          "ToNode": "2060572998"
+        },
+        {
+          "Weight": 0.815,
+          "FromNode": "1240056403",
+          "ToNode": "1532125919"
+        },
+        {
+          "Weight": -0.188,
+          "FromNode": "1240056403",
+          "ToNode": "598812517"
+        }
+      ],
+      "InConnections": [],
+      "Network": {
+        "$ref": "1"
+      }
+    },
+    "392701149": {
+      "$id": "3",
+      "Id": "1625669043",
+      "Bias": 0.723,
+      "Activation": 0.723,
+      "OutConnections": [
+        {
+          "Weight": -0.792,
+          "FromNode": "392701149",
+          "ToNode": "1691150053"
+        },
+        {
+          "Weight": 0.704,
+          "FromNode": "392701149",
+          "ToNode": "2060572998"
+        },
+        {
+          "Weight": -0.023,
+          "FromNode": "392701149",
+          "ToNode": "1532125919"
+        },
+        {
+          "Weight": 0.006,
+          "FromNode": "392701149",
+          "ToNode": "598812517"
+        }
+      ],
+      "InConnections": [],
+      "Network": {
+        "$ref": "1"
+      }
+    },
+    "1691150053": {
+      "$id": "4",
+      "Id": "2049075415",
+      "Bias": 0.426,
+      "Activation": 0.123,
+      "OutConnections": [
+        {
+          "Weight": 0.314,
+          "FromNode": "1691150053",
+          "ToNode": "924181707"
+        },
+        {
+          "Weight": 0.997,
+          "FromNode": "1691150053",
+          "ToNode": "671813476"
+        },
+        {
+          "Weight": 0.419,
+          "FromNode": "1691150053",
+          "ToNode": "1226271236"
+        },
+        {
+          "Weight": 0.118,
+          "FromNode": "1691150053",
+          "ToNode": "1737431268"
+        }
+      ],
+      "InConnections": [
+        {
+          "Weight": 0.734,
+          "FromNode": "1240056403",
+          "ToNode": "1691150053"
+        },
+        {
+          "Weight": -0.792,
+          "FromNode": "392701149",
+          "ToNode": "1691150053"
+        }
+      ],
+      "Network": {
+        "$ref": "1"
+      }
+    },
+    "2060572998": {
+      "$id": "5",
+      "Id": "1704983860",
+      "Bias": 0.809,
+      "Activation": 1.674,
+      "OutConnections": [
+        {
+          "Weight": 0.529,
+          "FromNode": "2060572998",
+          "ToNode": "924181707"
+        },
+        {
+          "Weight": 0.801,
+          "FromNode": "2060572998",
+          "ToNode": "671813476"
+        },
+        {
+          "Weight": 0.533,
+          "FromNode": "2060572998",
+          "ToNode": "1226271236"
+        },
+        {
+          "Weight": 0.321,
+          "FromNode": "2060572998",
+          "ToNode": "1737431268"
+        }
+      ],
+      "InConnections": [
+        {
+          "Weight": 0.969,
+          "FromNode": "1240056403",
+          "ToNode": "2060572998"
+        },
+        {
+          "Weight": 0.704,
+          "FromNode": "392701149",
+          "ToNode": "2060572998"
+        }
+      ],
+      "Network": {
+        "$ref": "1"
+      }
+    },
+    "1532125919": {
+      "$id": "6",
+      "Id": "1468809939",
+      "Bias": 0.744,
+      "Activation": 1.026,
+      "OutConnections": [
+        {
+          "Weight": 0.838,
+          "FromNode": "1532125919",
+          "ToNode": "924181707"
+        },
+        {
+          "Weight": 0.203,
+          "FromNode": "1532125919",
+          "ToNode": "671813476"
+        },
+        {
+          "Weight": -0.96,
+          "FromNode": "1532125919",
+          "ToNode": "1226271236"
+        },
+        {
+          "Weight": 0.034,
+          "FromNode": "1532125919",
+          "ToNode": "1737431268"
+        }
+      ],
+      "InConnections": [
+        {
+          "Weight": 0.815,
+          "FromNode": "1240056403",
+          "ToNode": "1532125919"
+        },
+        {
+          "Weight": -0.023,
+          "FromNode": "392701149",
+          "ToNode": "1532125919"
+        }
+      ],
+      "Network": {
+        "$ref": "1"
+      }
+    },
+    "598812517": {
+      "$id": "7",
+      "Id": "716280554",
+      "Bias": 0.727,
+      "Activation": 0.662,
+      "OutConnections": [
+        {
+          "Weight": -0.621,
+          "FromNode": "598812517",
+          "ToNode": "924181707"
+        },
+        {
+          "Weight": -0.628,
+          "FromNode": "598812517",
+          "ToNode": "671813476"
+        },
+        {
+          "Weight": 0.126,
+          "FromNode": "598812517",
+          "ToNode": "1226271236"
+        },
+        {
+          "Weight": 0.239,
+          "FromNode": "598812517",
+          "ToNode": "1737431268"
+        }
+      ],
+      "InConnections": [
+        {
+          "Weight": -0.188,
+          "FromNode": "1240056403",
+          "ToNode": "598812517"
+        },
+        {
+          "Weight": 0.006,
+          "FromNode": "392701149",
+          "ToNode": "598812517"
+        }
+      ],
+      "Network": {
+        "$ref": "1"
+      }
+    },
+    "924181707": {
+      "$id": "8",
+      "Id": "200051404",
+      "Bias": 0.969,
+      "Activation": 2.342,
+      "OutConnections": [
+        {
+          "Weight": -0.212,
+          "FromNode": "924181707",
+          "ToNode": "872151720"
+        },
+        {
+          "Weight": 0.266,
+          "FromNode": "924181707",
+          "ToNode": "919760813"
+        },
+        {
+          "Weight": 0.964,
+          "FromNode": "924181707",
+          "ToNode": "2120914499"
+        },
+        {
+          "Weight": 0.636,
+          "FromNode": "924181707",
+          "ToNode": "2013988173"
+        }
+      ],
+      "InConnections": [
+        {
+          "Weight": 0.314,
+          "FromNode": "1691150053",
+          "ToNode": "924181707"
+        },
+        {
+          "Weight": 0.529,
+          "FromNode": "2060572998",
+          "ToNode": "924181707"
+        },
+        {
+          "Weight": 0.838,
+          "FromNode": "1532125919",
+          "ToNode": "924181707"
+        },
+        {
+          "Weight": -0.621,
+          "FromNode": "598812517",
+          "ToNode": "924181707"
+        }
+      ],
+      "Network": {
+        "$ref": "1"
+      }
+    },
+    "671813476": {
+      "$id": "9",
+      "Id": "1328227438",
+      "Bias": -0.296,
+      "Activation": 0.96,
+      "OutConnections": [
+        {
+          "Weight": 0.029,
+          "FromNode": "671813476",
+          "ToNode": "872151720"
+        },
+        {
+          "Weight": 0.852,
+          "FromNode": "671813476",
+          "ToNode": "919760813"
+        },
+        {
+          "Weight": 0.445,
+          "FromNode": "671813476",
+          "ToNode": "2120914499"
+        },
+        {
+          "Weight": 0.409,
+          "FromNode": "671813476",
+          "ToNode": "2013988173"
+        }
+      ],
+      "InConnections": [
+        {
+          "Weight": 0.997,
+          "FromNode": "1691150053",
+          "ToNode": "671813476"
+        },
+        {
+          "Weight": 0.801,
+          "FromNode": "2060572998",
+          "ToNode": "671813476"
+        },
+        {
+          "Weight": 0.203,
+          "FromNode": "1532125919",
+          "ToNode": "671813476"
+        },
+        {
+          "Weight": -0.628,
+          "FromNode": "598812517",
+          "ToNode": "671813476"
+        }
+      ],
+      "Network": {
+        "$ref": "1"
+      }
+    },
+    "1226271236": {
+      "$id": "10",
+      "Id": "1830199104",
+      "Bias": 0.525,
+      "Activation": 0.567,
+      "OutConnections": [
+        {
+          "Weight": -0.51,
+          "FromNode": "1226271236",
+          "ToNode": "872151720"
+        },
+        {
+          "Weight": 0.552,
+          "FromNode": "1226271236",
+          "ToNode": "919760813"
+        },
+        {
+          "Weight": 0.884,
+          "FromNode": "1226271236",
+          "ToNode": "2120914499"
+        },
+        {
+          "Weight": 0.893,
+          "FromNode": "1226271236",
+          "ToNode": "2013988173"
+        }
+      ],
+      "InConnections": [
+        {
+          "Weight": 0.419,
+          "FromNode": "1691150053",
+          "ToNode": "1226271236"
+        },
+        {
+          "Weight": 0.533,
+          "FromNode": "2060572998",
+          "ToNode": "1226271236"
+        },
+        {
+          "Weight": -0.96,
+          "FromNode": "1532125919",
+          "ToNode": "1226271236"
+        },
+        {
+          "Weight": 0.126,
+          "FromNode": "598812517",
+          "ToNode": "1226271236"
+        }
+      ],
+      "Network": {
+        "$ref": "1"
+      }
+    },
+    "1737431268": {
+      "$id": "11",
+      "Id": "1628242982",
+      "Bias": 0.966,
+      "Activation": 1.711,
+      "OutConnections": [
+        {
+          "Weight": 0.372,
+          "FromNode": "1737431268",
+          "ToNode": "872151720"
+        },
+        {
+          "Weight": -0.927,
+          "FromNode": "1737431268",
+          "ToNode": "919760813"
+        },
+        {
+          "Weight": -0.762,
+          "FromNode": "1737431268",
+          "ToNode": "2120914499"
+        },
+        {
+          "Weight": 0.178,
+          "FromNode": "1737431268",
+          "ToNode": "2013988173"
+        }
+      ],
+      "InConnections": [
+        {
+          "Weight": 0.118,
+          "FromNode": "1691150053",
+          "ToNode": "1737431268"
+        },
+        {
+          "Weight": 0.321,
+          "FromNode": "2060572998",
+          "ToNode": "1737431268"
+        },
+        {
+          "Weight": 0.034,
+          "FromNode": "1532125919",
+          "ToNode": "1737431268"
+        },
+        {
+          "Weight": 0.239,
+          "FromNode": "598812517",
+          "ToNode": "1737431268"
+        }
+      ],
+      "Network": {
+        "$ref": "1"
+      }
+    },
+    "872151720": {
+      "$id": "12",
+      "Id": "417903455",
+      "Bias": 0.981,
+      "Activation": 0.86,
+      "OutConnections": [
+        {
+          "Weight": -0.446,
+          "FromNode": "872151720",
+          "ToNode": "1071575508"
+        },
+        {
+          "Weight": 0.672,
+          "FromNode": "872151720",
+          "ToNode": "682543047"
+        }
+      ],
+      "InConnections": [
+        {
+          "Weight": -0.212,
+          "FromNode": "924181707",
+          "ToNode": "872151720"
+        },
+        {
+          "Weight": 0.029,
+          "FromNode": "671813476",
+          "ToNode": "872151720"
+        },
+        {
+          "Weight": -0.51,
+          "FromNode": "1226271236",
+          "ToNode": "872151720"
+        },
+        {
+          "Weight": 0.372,
+          "FromNode": "1737431268",
+          "ToNode": "872151720"
+        }
+      ],
+      "Network": {
+        "$ref": "1"
+      }
+    },
+    "919760813": {
+      "$id": "13",
+      "Id": "279987015",
+      "Bias": 0.351,
+      "Activation": 0.519,
+      "OutConnections": [
+        {
+          "Weight": 0.82,
+          "FromNode": "919760813",
+          "ToNode": "1071575508"
+        },
+        {
+          "Weight": -0.294,
+          "FromNode": "919760813",
+          "ToNode": "682543047"
+        }
+      ],
+      "InConnections": [
+        {
+          "Weight": 0.266,
+          "FromNode": "924181707",
+          "ToNode": "919760813"
+        },
+        {
+          "Weight": 0.852,
+          "FromNode": "671813476",
+          "ToNode": "919760813"
+        },
+        {
+          "Weight": 0.552,
+          "FromNode": "1226271236",
+          "ToNode": "919760813"
+        },
+        {
+          "Weight": -0.927,
+          "FromNode": "1737431268",
+          "ToNode": "919760813"
+        }
+      ],
+      "Network": {
+        "$ref": "1"
+      }
+    },
+    "2120914499": {
+      "$id": "14",
+      "Id": "534077257",
+      "Bias": 0.447,
+      "Activation": 2.329,
+      "OutConnections": [
+        {
+          "Weight": 0.517,
+          "FromNode": "2120914499",
+          "ToNode": "1071575508"
+        },
+        {
+          "Weight": 0.654,
+          "FromNode": "2120914499",
+          "ToNode": "682543047"
+        }
+      ],
+      "InConnections": [
+        {
+          "Weight": 0.964,
+          "FromNode": "924181707",
+          "ToNode": "2120914499"
+        },
+        {
+          "Weight": 0.445,
+          "FromNode": "671813476",
+          "ToNode": "2120914499"
+        },
+        {
+          "Weight": 0.884,
+          "FromNode": "1226271236",
+          "ToNode": "2120914499"
+        },
+        {
+          "Weight": -0.762,
+          "FromNode": "1737431268",
+          "ToNode": "2120914499"
+        }
+      ],
+      "Network": {
+        "$ref": "1"
+      }
+    },
+    "2013988173": {
+      "$id": "15",
+      "Id": "1790726360",
+      "Bias": 0.201,
+      "Activation": 2.894,
+      "OutConnections": [
+        {
+          "Weight": 0.668,
+          "FromNode": "2013988173",
+          "ToNode": "1071575508"
+        },
+        {
+          "Weight": 0.088,
+          "FromNode": "2013988173",
+          "ToNode": "682543047"
+        }
+      ],
+      "InConnections": [
+        {
+          "Weight": 0.636,
+          "FromNode": "924181707",
+          "ToNode": "2013988173"
+        },
+        {
+          "Weight": 0.409,
+          "FromNode": "671813476",
+          "ToNode": "2013988173"
+        },
+        {
+          "Weight": 0.893,
+          "FromNode": "1226271236",
+          "ToNode": "2013988173"
+        },
+        {
+          "Weight": 0.178,
+          "FromNode": "1737431268",
+          "ToNode": "2013988173"
+        }
+      ],
+      "Network": {
+        "$ref": "1"
+      }
+    },
+    "1071575508": {
+      "$id": "16",
+      "Id": "2129358429",
+      "Bias": -0.073,
+      "Activation": 3.106,
+      "OutConnections": [],
+      "InConnections": [
+        {
+          "Weight": -0.446,
+          "FromNode": "872151720",
+          "ToNode": "1071575508"
+        },
+        {
+          "Weight": 0.82,
+          "FromNode": "919760813",
+          "ToNode": "1071575508"
+        },
+        {
+          "Weight": 0.517,
+          "FromNode": "2120914499",
+          "ToNode": "1071575508"
+        },
+        {
+          "Weight": 0.668,
+          "FromNode": "2013988173",
+          "ToNode": "1071575508"
+        }
+      ],
+      "Network": {
+        "$ref": "1"
+      }
+    },
+    "682543047": {
+      "$id": "17",
+      "Id": "814113917",
+      "Bias": 0.532,
+      "Activation": 2.735,
+      "OutConnections": [],
+      "InConnections": [
+        {
+          "Weight": 0.672,
+          "FromNode": "872151720",
+          "ToNode": "682543047"
+        },
+        {
+          "Weight": -0.294,
+          "FromNode": "919760813",
+          "ToNode": "682543047"
+        },
+        {
+          "Weight": 0.654,
+          "FromNode": "2120914499",
+          "ToNode": "682543047"
+        },
+        {
+          "Weight": 0.088,
+          "FromNode": "2013988173",
+          "ToNode": "682543047"
+        }
+      ],
+      "Network": {
+        "$ref": "1"
+      }
+    }
+  },
+  "InputNodes": [
+    {
+      "$id": "18",
+      "Id": "892811160",
+      "Bias": 0.367,
+      "Activation": 0.367,
+      "OutConnections": [
+        {
+          "Weight": 0.734,
+          "FromNode": "1240056403",
+          "ToNode": "1691150053"
+        },
+        {
+          "Weight": 0.969,
+          "FromNode": "1240056403",
+          "ToNode": "2060572998"
+        },
+        {
+          "Weight": 0.815,
+          "FromNode": "1240056403",
+          "ToNode": "1532125919"
+        },
+        {
+          "Weight": -0.188,
+          "FromNode": "1240056403",
+          "ToNode": "598812517"
+        }
+      ],
+      "InConnections": [],
+      "Network": {
+        "$ref": "1"
+      }
+    },
+    {
+      "$id": "19",
+      "Id": "1665889299",
+      "Bias": 0.723,
+      "Activation": 0.723,
+      "OutConnections": [
+        {
+          "Weight": -0.792,
+          "FromNode": "392701149",
+          "ToNode": "1691150053"
+        },
+        {
+          "Weight": 0.704,
+          "FromNode": "392701149",
+          "ToNode": "2060572998"
+        },
+        {
+          "Weight": -0.023,
+          "FromNode": "392701149",
+          "ToNode": "1532125919"
+        },
+        {
+          "Weight": 0.006,
+          "FromNode": "392701149",
+          "ToNode": "598812517"
+        }
+      ],
+      "InConnections": [],
+      "Network": {
+        "$ref": "1"
+      }
+    }
+  ],
+  "OutputNodes": [
+    {
+      "$id": "20",
+      "Id": "897765493",
+      "Bias": -0.073,
+      "Activation": 3.106,
+      "OutConnections": [],
+      "InConnections": [
+        {
+          "Weight": -0.446,
+          "FromNode": "872151720",
+          "ToNode": "1071575508"
+        },
+        {
+          "Weight": 0.82,
+          "FromNode": "919760813",
+          "ToNode": "1071575508"
+        },
+        {
+          "Weight": 0.517,
+          "FromNode": "2120914499",
+          "ToNode": "1071575508"
+        },
+        {
+          "Weight": 0.668,
+          "FromNode": "2013988173",
+          "ToNode": "1071575508"
+        }
+      ],
+      "Network": {
+        "$ref": "1"
+      }
+    },
+    {
+      "$id": "21",
+      "Id": "1369998173",
+      "Bias": 0.532,
+      "Activation": 2.735,
+      "OutConnections": [],
+      "InConnections": [
+        {
+          "Weight": 0.672,
+          "FromNode": "872151720",
+          "ToNode": "682543047"
+        },
+        {
+          "Weight": -0.294,
+          "FromNode": "919760813",
+          "ToNode": "682543047"
+        },
+        {
+          "Weight": 0.654,
+          "FromNode": "2120914499",
+          "ToNode": "682543047"
+        },
+        {
+          "Weight": 0.088,
+          "FromNode": "2013988173",
+          "ToNode": "682543047"
+        }
+      ],
+      "Network": {
+        "$ref": "1"
+      }
+    }
+  ],
+  "Layers": [
+    {
+      "$id": "22",
+      "LayerNumber": 1,
+      "Nodes": [
+        {
+          "$id": "23",
+          "Id": "882671411",
+          "Bias": 0.367,
+          "Activation": 0.367,
+          "OutConnections": [
+            {
+              "Weight": 0.734,
+              "FromNode": "1240056403",
+              "ToNode": "1691150053"
+            },
+            {
+              "Weight": 0.969,
+              "FromNode": "1240056403",
+              "ToNode": "2060572998"
+            },
+            {
+              "Weight": 0.815,
+              "FromNode": "1240056403",
+              "ToNode": "1532125919"
+            },
+            {
+              "Weight": -0.188,
+              "FromNode": "1240056403",
+              "ToNode": "598812517"
+            }
+          ],
+          "InConnections": [],
+          "Network": {
+            "$ref": "1"
+          }
+        },
+        {
+          "$id": "24",
+          "Id": "2066001409",
+          "Bias": 0.723,
+          "Activation": 0.723,
+          "OutConnections": [
+            {
+              "Weight": -0.792,
+              "FromNode": "392701149",
+              "ToNode": "1691150053"
+            },
+            {
+              "Weight": 0.704,
+              "FromNode": "392701149",
+              "ToNode": "2060572998"
+            },
+            {
+              "Weight": -0.023,
+              "FromNode": "392701149",
+              "ToNode": "1532125919"
+            },
+            {
+              "Weight": 0.006,
+              "FromNode": "392701149",
+              "ToNode": "598812517"
+            }
+          ],
+          "InConnections": [],
+          "Network": {
+            "$ref": "1"
+          }
+        }
+      ]
+    },
+    {
+      "$id": "25",
+      "LayerNumber": 2,
+      "Nodes": [
+        {
+          "$ref": "4"
+        },
+        {
+          "$ref": "5"
+        },
+        {
+          "$ref": "6"
+        },
+        {
+          "$ref": "7"
+        }
+      ]
+    },
+    {
+      "$id": "26",
+      "LayerNumber": 3,
+      "Nodes": [
+        {
+          "$ref": "8"
+        },
+        {
+          "$ref": "9"
+        },
+        {
+          "$ref": "10"
+        },
+        {
+          "$ref": "11"
+        }
+      ]
+    },
+    {
+      "$id": "27",
+      "LayerNumber": 4,
+      "Nodes": [
+        {
+          "$ref": "12"
+        },
+        {
+          "$ref": "13"
+        },
+        {
+          "$ref": "14"
+        },
+        {
+          "$ref": "15"
+        }
+      ]
+    },
+    {
+      "$id": "28",
+      "LayerNumber": 5,
+      "Nodes": [
+        {
+          "$id": "29",
+          "Id": "512352482",
+          "Bias": -0.073,
+          "Activation": 3.106,
+          "OutConnections": [],
+          "InConnections": [
+            {
+              "Weight": -0.446,
+              "FromNode": "872151720",
+              "ToNode": "1071575508"
+            },
+            {
+              "Weight": 0.82,
+              "FromNode": "919760813",
+              "ToNode": "1071575508"
+            },
+            {
+              "Weight": 0.517,
+              "FromNode": "2120914499",
+              "ToNode": "1071575508"
+            },
+            {
+              "Weight": 0.668,
+              "FromNode": "2013988173",
+              "ToNode": "1071575508"
+            }
+          ],
+          "Network": {
+            "$ref": "1"
+          }
+        },
+        {
+          "$id": "30",
+          "Id": "1824203388",
+          "Bias": 0.532,
+          "Activation": 2.735,
+          "OutConnections": [],
+          "InConnections": [
+            {
+              "Weight": 0.672,
+              "FromNode": "872151720",
+              "ToNode": "682543047"
+            },
+            {
+              "Weight": -0.294,
+              "FromNode": "919760813",
+              "ToNode": "682543047"
+            },
+            {
+              "Weight": 0.654,
+              "FromNode": "2120914499",
+              "ToNode": "682543047"
+            },
+            {
+              "Weight": 0.088,
+              "FromNode": "2013988173",
+              "ToNode": "682543047"
+            }
+          ],
+          "Network": {
+            "$ref": "1"
+          }
+        }
+      ]
+    }
+  ]
+}

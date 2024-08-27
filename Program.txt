@@ -1,0 +1,408 @@
+﻿/*
+* Niko Drossos
+* Started: 8/23/24
+* 
+* I want to try to make a Neural Network from scratch in C#
+* so that I can learn about both at the same time.
+*/
+
+
+using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Data;
+using System.Runtime.CompilerServices;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
+using static System.Console;
+using static NeuralNetwork.Node;
+
+// TODO: Add later when i split into multiple files
+// #include "NeuralNetwork.cs";
+
+
+namespace NeuralNetwork {
+	public class Program
+	{
+		public static void Main()
+		{
+			Network baseNetwork = new();
+			baseNetwork.Generate(2, 3, 4, 2); //(inputs, hidden Layers, nodes per layer, outputs)	
+			baseNetwork.Run();
+			baseNetwork.DisplayNodes();
+
+			// This is the value the network wants to output
+			float target = 2.384f;
+			WriteLine($"Total output: {baseNetwork.GetOutput()}");
+			WriteLine($"Target value: {target}");
+			WriteLine("------------------------");
+			WriteLine($"Difference value: {baseNetwork.TestFitness(target)}");
+
+			// Utils.NetworkSerializer.SaveNetwork(baseNetwork, "network.json");
+			// Network loadedNetwork = Utils.NetworkSerializer.LoadNetwork("network.json");
+	
+			// Node testingNode = baseNetwork.Nodes.Values.ElementAt(0);
+			// Network.Layer inputLayer = baseNetwork.Layers[0];
+			// Network.Layer hiddenLayer = baseNetwork.Layers[1];
+			// testingNode.Activate();
+
+			// testingNode.Mutate();
+
+			// testingNode.DisplayInfo();
+			// inputLayer.ActivateNodes();
+			// hiddenLayer.ListNodes();
+		}
+	}
+
+	// Standard Util class for random methods
+	public static class Utils
+	{
+		private static readonly Random random = new();
+
+		public static float InitializeWeightOrBias(float? value)
+		{
+			if (value.HasValue) 
+			{    
+				return value.Value;
+			}
+			else 
+			{
+				float randomBias = (float)random.NextDouble(); 
+				// Give it a 25% chance of being a negative value 
+				if ((float)random.NextDouble() > 0.75f) randomBias *= -1;
+				return (float)Math.Round(randomBias, 3);
+			}
+		}
+
+		// Activation function for the nodes 
+		public static float LeakyRelu(float value)
+		{
+			value = (float)Math.Round(value, 3);
+			if (value > 0) return value;
+			else return (float)(value * 0.1);
+		}
+
+		public static class NetworkSerializer
+		{
+			public static void SaveNetwork(Network network, string filePath)
+			{
+                using var stream = new FileStream(filePath, FileMode.Create);
+                var serializer = new DataContractJsonSerializer(typeof(Network));
+                serializer.WriteObject(stream, network);
+            }
+
+			public static Network LoadNetwork(string filePath)
+			{
+                using var stream = new FileStream(filePath, FileMode.Open);
+                var serializer = new DataContractJsonSerializer(typeof(Network));
+                return (Network)serializer.ReadObject(stream);
+            }
+		}
+	}
+
+	[DataContract]
+	public class Network
+	{
+		[DataMember]
+		public Dictionary<string, Node> Nodes { get; set; } = [];
+		[DataMember]
+		public List<Node> InputNodes { get; set; } = [];
+		[DataMember]
+		public List<Node> OutputNodes { get; set; } = [];
+		[DataMember]
+		public List<Layer> Layers { get; set; } = [];
+
+		public void Generate(int inputCount, int layerCount, int nodesPerLayer, int outputCount)
+		{	
+			// Create a list of input nodes to accept the data input 
+			for (int i = 0; i < inputCount; i++)
+			{
+				float newBias = Utils.InitializeWeightOrBias(null);
+				InputNode inputNode = new(1f, this, newBias);
+				InputNodes.Add(inputNode);
+				Nodes.Add(inputNode.Id, inputNode);
+			}
+			
+			// The first layer in the network is the input layer
+			Layer inputLayer = new(1, InputNodes);  
+			Layers.Add(inputLayer);
+
+			// Generate the rest of the hidden layers
+			for (int i = 0; i < layerCount; i++)
+			{
+				GenerateLayer(nodesPerLayer, i);
+			}
+
+			// The last layer in the network is the output layer
+			for (int i = 0; i < outputCount; i++)
+			{
+				List<Connection> connectionsToOutput = [];
+				OutputNode outputNode = new(connectionsToOutput, this, null);
+				OutputNodes.Add(outputNode);
+
+				foreach (Node node in Layers[layerCount].Nodes)
+				{
+					Connection toOutputNode = new(1f, Layers[layerCount].Nodes[i].Id, outputNode.Id);
+					node.Connect(outputNode);
+				}
+
+				Nodes.Add(outputNode.Id, outputNode);
+			}
+
+			Layer outputLayer = new(layerCount + 2, OutputNodes);
+			Layers.Add(outputLayer);
+		}
+
+		public void GenerateLayer(int nodeCount, int layerCount)
+		{
+			List<Node> layerNodes = [];
+
+			for (int i = 0; i < nodeCount; i++)
+			{
+				Node newNode = GenerateNode();
+
+				// Connect all nodes in the last layer to all nodes in the next layer
+				foreach (Node node in Layers[layerCount].Nodes)
+				{
+					node.Connect(newNode);
+				}
+
+				Nodes.Add(newNode.Id, newNode);
+				layerNodes.Add(newNode);
+			}
+
+			int layerNumber = Layers.Count + 1;
+			Layer newLayer = new(layerNumber, layerNodes);
+
+			Layers.Add(newLayer);
+		}
+
+		private Node GenerateNode()
+		{
+            Node newNode = new(null, [], this);
+            return newNode;
+		}
+
+		public void Run()
+		{
+			// Run the network
+			foreach (Layer layer in Layers)
+			{
+				layer.ActivateNodes();
+			}
+		}
+
+		[DataContract]
+		public class Layer(int layerNumber, List<Node> nodes)
+        {
+			[DataMember]
+            public int LayerNumber { get; set; } = layerNumber;
+			[DataMember]
+            public List<Node> Nodes { get; set; } = nodes;
+
+            public void ListNodes()
+			{	
+				WriteLine($"Layer number: {LayerNumber}");
+				foreach (Node node in Nodes)
+				{
+					WriteLine("------------------------");
+					node.DisplayInfo();
+				}
+			}
+
+			public void ActivateNodes()
+			{
+				foreach (Node node in Nodes)
+				{
+					node.Activate();
+				}
+			}
+		}
+
+
+		public void DisplayNodes()
+		{
+			WriteLine("========================");
+			foreach (Layer layer in Layers)
+			{
+				layer.ListNodes();
+				WriteLine("========================");
+			}
+		}
+
+		public float GetOutput()
+		{
+			float output = 0.0f;
+			// Returns the activation of the output nodes in the network
+			foreach (Node node in OutputNodes)
+			{
+				output += node.Activation;
+			}
+			return (float)Math.Round(output, 3);
+		}
+
+		public float TestFitness(float target)
+		{
+			float difference = Math.Abs(target - GetOutput());
+			return (float)Math.Round(difference, 3);
+		}
+	}
+
+	// This is for the individual Nodes in the network
+	[DataContract]
+	[KnownType(typeof(Connection))]
+	[KnownType(typeof(Node))]
+	[KnownType(typeof(InputNode))]
+	[KnownType(typeof(OutputNode))]
+	public class Node
+	{
+		[DataMember]
+		public string Id { get; }
+		[DataMember]
+		public float Bias { get; set; }
+		[DataMember]
+		public float Activation { get; set; }
+		[DataMember]
+		public List<Connection> OutConnections { get; set; }
+		[DataMember]
+		public List<Connection> InConnections { get; set; }
+		[DataMember]
+		public Network Network { get; set; }
+
+		[DataContract]
+		public class Connection(float? Weight, string FromNode, string ToNode)
+		{
+			[DataMember]
+			public float Weight { get; set; } = Utils.InitializeWeightOrBias(Weight);
+			[DataMember]
+			public string FromNode { get; set; } = FromNode;
+			[DataMember]
+			public string ToNode { get; set; } = ToNode;
+
+			public void Info()
+			{
+				WriteLine($"weight {Weight}, from {FromNode}, to {ToNode}");
+			}
+		}
+
+		public Node(float? bias,  List<Connection> inConnections, Network network)
+		{
+			Random random = new();
+			Id = Convert.ToString(random.Next());
+			Bias = Utils.InitializeWeightOrBias(bias);
+			OutConnections = [];
+			InConnections = inConnections;
+			Network = network;
+			Activation = 0.0f;
+		}
+
+		public Node(float bias, Network network)
+		{
+			Random random = new();
+			Id = Convert.ToString(random.Next());
+			Bias = bias;
+			OutConnections = [];
+			InConnections = [];
+			Network = network;
+			Activation = 0.0f;
+		}
+
+
+		// Just displays the information stored inside the Node
+		public void DisplayInfo()
+		{
+			WriteLine($"Id: {Id}");
+			WriteLine($"Bias: {Bias}");
+			WriteLine("InConnection:");
+			foreach (Connection connection in InConnections)
+			{
+				connection.Info();
+			}
+			WriteLine("OutConnections:");
+			foreach (Connection connection in OutConnections)
+			{
+				connection.Info();
+			}
+			WriteLine($"Activation: {Activation}");
+		}
+
+		// Connects the Node to another, outNode.Connect(inNode)
+		public void Connect(Node node, float? bias = null)
+		{
+			float connectionWeight = Utils.InitializeWeightOrBias(bias);
+
+			Connection nodeEdge = new(connectionWeight, Id, node.Id);
+			
+			// Add the edge to the inConnections of the node it connects
+			node.InConnections.Add(nodeEdge);
+
+			// Add the edge to the outConnections of the node
+			OutConnections.Add(nodeEdge);
+		}
+
+		// Send the data from th node to the next layer
+		public void Activate()
+		{
+			float newOutput = 0.0f;
+			// Take the sum of all the inputs in the previous layer
+			// And multiply it by the weight on that connection
+			foreach (Connection connection in InConnections)
+			{
+				Node fromNode = Network.Nodes[connection.FromNode];
+				newOutput += connection.Weight * fromNode.Activation; 
+			}
+
+			Activation = Utils.LeakyRelu((float)newOutput + Bias);
+		}
+
+		public void Mutate()
+		{
+			
+			// Choose a random number between 0 and 2.
+			// This is used to choose where he mutation takes place
+			
+			Random random = new();
+			byte randomByte = (byte)random.Next(0, 2);
+			
+			if (randomByte == 0)
+			{
+				float newBias = Utils.InitializeWeightOrBias(null);
+				WriteLine($"Mutating bias on node {Id} from {Bias} to {newBias}");
+				Bias = newBias;
+			}
+			else if (randomByte == 1)
+			{
+				byte randomEdge = (byte)random.Next(0, OutConnections.Count);
+				float newWeight = Utils.InitializeWeightOrBias(null);
+				WriteLine($"Mutating weight on node {Id} from {OutConnections[randomEdge].Weight} to {newWeight}");
+				OutConnections[randomEdge].Weight = newWeight;
+			}
+		}
+	}
+
+
+	// This is just so that you can have inputs into the network
+	[DataContract]
+	public class InputNode : Node
+	{
+		public InputNode(float inputValue, Network network, float bias, List<Connection>? outConnections = null)
+			: base(bias, network)
+		{
+			Activation = inputValue;
+			OutConnections = [];
+		}
+
+		public float GetOutput()
+		{
+			return Activation + Bias; // Example output calculation
+		}
+	}
+
+
+	// This will contain the resulting outputs in the network
+	[DataContract]
+	public class OutputNode(List<Connection> inConnections, Network network, float? bias = null) : Node(bias, inConnections, network)
+	{
+        public float OutputValue { get; private set; } = 0.0f; // Initialize output value to 0
+    }
+}

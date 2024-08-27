@@ -1,0 +1,17 @@
+/home/niko-drossos/Documents/C#/NeuralNetwork/obj/Debug/net8.0/NeuralNetwork.GeneratedMSBuildEditorConfig.editorconfig
+/home/niko-drossos/Documents/C#/NeuralNetwork/obj/Debug/net8.0/NeuralNetwork.AssemblyInfoInputs.cache
+/home/niko-drossos/Documents/C#/NeuralNetwork/obj/Debug/net8.0/NeuralNetwork.AssemblyInfo.cs
+/home/niko-drossos/Documents/C#/NeuralNetwork/obj/Debug/net8.0/NeuralNetwork.csproj.CoreCompileInputs.cache
+/home/niko-drossos/Documents/C#/NeuralNetwork/bin/Debug/net8.0/NeuralNetwork
+/home/niko-drossos/Documents/C#/NeuralNetwork/bin/Debug/net8.0/NeuralNetwork.deps.json
+/home/niko-drossos/Documents/C#/NeuralNetwork/bin/Debug/net8.0/NeuralNetwork.runtimeconfig.json
+/home/niko-drossos/Documents/C#/NeuralNetwork/bin/Debug/net8.0/NeuralNetwork.dll
+/home/niko-drossos/Documents/C#/NeuralNetwork/bin/Debug/net8.0/NeuralNetwork.pdb
+/home/niko-drossos/Documents/C#/NeuralNetwork/obj/Debug/net8.0/NeuralNetwork.dll
+/home/niko-drossos/Documents/C#/NeuralNetwork/obj/Debug/net8.0/refint/NeuralNetwork.dll
+/home/niko-drossos/Documents/C#/NeuralNetwork/obj/Debug/net8.0/NeuralNetwork.pdb
+/home/niko-drossos/Documents/C#/NeuralNetwork/obj/Debug/net8.0/NeuralNetwork.genruntimeconfig.cache
+/home/niko-drossos/Documents/C#/NeuralNetwork/obj/Debug/net8.0/ref/NeuralNetwork.dll
+/home/niko-drossos/Documents/C#/NeuralNetwork/bin/Debug/net8.0/Newtonsoft.Json.dll
+/home/niko-drossos/Documents/C#/NeuralNetwork/obj/Debug/net8.0/NeuralNetwork.csproj.AssemblyReference.cache
+/home/niko-drossos/Documents/C#/NeuralNetwork/obj/Debug/net8.0/NeuralNetwork.csproj.CopyComplete
